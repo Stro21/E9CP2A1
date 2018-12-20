@@ -9,6 +9,9 @@ class Table
     @income = [day1.to_i, day2.to_i, day3.to_i, day4.to_i]
   end
 
+  def day_earnings(ind)
+    income[ind]
+  end
   # def average
   #   suma = income.inject { |sum, n| sum + n }
   #   puts "El promedio de lo recaudado por todas las mesas es es #{suma / 4}"
@@ -24,7 +27,10 @@ def average(num1, num2, num3, num4)
 end
 
 def days_average(tables_array)
-  
+  avg = [][]
+  tables_array.each do |table|
+    table.income.each_with_index do 
+  end
 end
 
 table_array = []
