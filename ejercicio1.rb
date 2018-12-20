@@ -19,9 +19,12 @@ class Table
   end
 end
 
-def average
-  suma = income.inject { |sum, n| sum + n }
-  puts "El promedio de lo recaudado por todas las mesas es es #{suma / 4}"
+def average(num1, num2, num3, num4)
+  (num1 + num2 + num3 + num4) / 4
+end
+
+def days_average(tables_array)
+  
 end
 
 table_array = []
@@ -33,8 +36,9 @@ data.each do |table_s|
 end
 tables.each do |table|
   table.best_day
-  table.average
 end
+
+days_average(tables)
 
 # rubocop:enable SymbolProc
 # rubocop:enable LineLength
