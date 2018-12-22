@@ -6,4 +6,12 @@ class Course
     @date_init = date_init
     @date_finish = date_finish
   end
+
+  def started_in(date = Date.today)
+    date_init < date
+  end
+
+  def finish_in(date = Date.today)
+    date_finish > date
+  end
 end
