@@ -10,6 +10,9 @@ class Course
   end
 
   def started_in(date = Date.today)
+    # if date >= 
+      
+    # end
     date_init < date
   end
 
@@ -28,5 +31,7 @@ def create_data(text_file)
   end
   courses
 end
+
+courses = create_data('cursos.txt')
 
 # rubocop:enable SymbolProc
