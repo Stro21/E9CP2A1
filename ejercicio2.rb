@@ -1,3 +1,5 @@
+# rubocop:disable SymbolProc
+
 # Class is of a teaching class that have 3 parameters
 class Course
   attr_reader :name, :date_init, :date_finish
@@ -15,3 +17,16 @@ class Course
     date_finish > date
   end
 end
+
+def create_data(text_file)
+  data = File.open(text_file, 'r') { |file| file.readlines }
+  array = []
+  courses = []
+  data.each do |line|
+    array = line.split(', ').map(&:chomp)
+    courses << Course.new(*array)
+  end
+  courses
+end
+
+# rubocop:enable SymbolProc
