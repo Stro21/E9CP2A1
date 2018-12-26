@@ -39,9 +39,10 @@ class Roulette
     data.each { |d| winners.push(d.to_i) }
     print winners
     puts ''
-    w = winners.group_by(&:itself).map { |k,v| [k, v.count] }.to_h
-    print w
+    hash = winners.group_by(&:itself).map { |k,v| [k, v.count] }.to_h
+    print hash
     puts ''
+    hash.each { |k, v| puts k if v == hash.values.max }
   end
 end
 
