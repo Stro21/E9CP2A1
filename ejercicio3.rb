@@ -39,6 +39,9 @@ class Roulette
     data.each { |d| winners.push(d.to_i) }
     print winners
     puts ''
+    w = winners.group_by(&:itself).map { |k,v| [k, v.count] }.to_h
+    print w
+    puts ''
   end
 end
 
