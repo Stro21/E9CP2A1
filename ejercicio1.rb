@@ -23,9 +23,16 @@ class Day
     @tables = tables
   end
 
+  def average
+    suma = tables.inject { |sum, n| sum + n }
+    puts "El promedio de lo recaudado por todas las mesas en el #{name} es #{suma / 4}"
+  end
+end
+
 table_array = []
 tables = []
 data = File.open('casino.txt', 'r') { |file| file.readlines }
+data.each do |table_s|
   table_array = table_s.split(', ').map(&:chomp)
   tables << Table.new(*table_array)
 end
