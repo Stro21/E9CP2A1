@@ -1,5 +1,5 @@
 # rubocop:disable LineLength
-
+# rubocop:disable AbcSize
 # This class use a random number from array to se if you can win
 class Roulette
   attr_reader :random, :winner
@@ -34,15 +34,11 @@ class Roulette
   def most_winning_number
     winners = []
     data = File.open('roulette_history.txt', 'r') { |file| file.readlines.map(&:chomp) }
-    print data
-    puts ''
     data.each { |d| winners.push(d.to_i) }
-    print winners
-    puts ''
-    hash = winners.group_by(&:itself).map { |k,v| [k, v.count] }.to_h
-    print hash
-    puts ''
-    hash.each { |k, v| puts k if v == hash.values.max }
+    hash = winners.group_by(&:itself).map { |k, v| [k, v.count] }.to_h
+    repeat = 0
+    hash.each { |k, v| repeat = k if v == hash.values.max }
+    puts repeat
   end
 end
 
@@ -55,3 +51,4 @@ roulette.play(10)
 roulette.most_winning_number
 
 # rubocop:enable LineLength
+# rubocop:enable AbcSize
